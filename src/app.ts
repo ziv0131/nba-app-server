@@ -1,7 +1,8 @@
 import { config } from "dotenv";
 import { getLogger } from "./services/LoggerService";
 import express from "express";
-import { handleErrors } from "./middlewares";
+import { handleErrors } from "./middlewares/index";
+import { mainRouter } from "./routes/mainRouter";
 
 config();
 const app = express();
@@ -18,3 +19,4 @@ app.listen(PORT, () => {
 });
 
 app.use((error, res, _next) => handleErrors(error, res));
+app.use(mainRouter);

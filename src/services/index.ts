@@ -1,2 +1,2 @@
-export { getLogger } from './LoggerService'
-export { fetchExternalApiData } from './ExternalApiDataFetcher'
+export { getLogger } from "./LoggerService";
+export { fetchData, fetchDataWithPagination } from "./ExternalApiDataFetcher";

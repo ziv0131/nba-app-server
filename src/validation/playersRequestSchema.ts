@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { numberValidation } from "ziv-nba-app-utils";
+import { InvalidRequestParametersError } from "../errors";
 
 const DEFAULT_CURSOR = 1;
 const DEFAULT_PER_PAGE = 25;
@@ -23,3 +24,12 @@ export const getPlayersValidationSchema = queryParamsValidationSchema.merge(
 export type QueryParams = z.infer<typeof queryParamsValidationSchema>;
 
 export type GetPlayersQueryParams = z.infer<typeof getPlayersValidationSchema>;
+
+export const validateQueryParams = (query: any) => {
+  const validationResult = getPlayersValidationSchema.safeParse(query);
+  if (!!validationResult.success) {
+    return validationResult.data;
+  }
+
+  throw new InvalidRequestParametersError(validationResult.error.errors);
+};

@@ -1,2 +1,2 @@
 export { InvalidRequestParametersError } from "./InvalidRequestParametersError";
-export { NoDataRecievedError } from "./NoDataRecievedError";
+export { InvalidExternalAPIResponseError } from "./InvalidExternalAPIResponseError";

@@ -1,4 +1,6 @@
 export {
   getPlayersValidationSchema,
-  GetPlayersQueryParams,
+  queryParamsValidationSchema,
+  validateQueryParams,
 } from "./playersRequestSchema";
+export { externalAPIResponseSchema } from "./ExternalAPIResponse";

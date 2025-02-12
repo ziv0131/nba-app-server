@@ -1,5 +1,8 @@
 import { HttpStatusCode } from "axios";
-import { InvalidRequestParametersError, NoDataRecievedError } from "../errors";
+import {
+  InvalidRequestParametersError,
+  InvalidExternalAPIResponseError,
+} from "../errors";
 import { getLogger } from "../services";
 import { Response } from "express";
 
@@ -12,7 +15,7 @@ export const handleErrors = (error: any, res: Response) => {
     );
     res.status(HttpStatusCode.BadRequest).send(error.message);
   }
-  if (error instanceof NoDataRecievedError) {
+  if (error instanceof InvalidExternalAPIResponseError) {
     logger.error(error.message);
     res
       .status(HttpStatusCode.InternalServerError)
