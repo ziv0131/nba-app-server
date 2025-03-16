@@ -2,8 +2,7 @@ import mongoose from "mongoose";
 import { getLogger } from "../services";
 
 const logger = getLogger();
-const uri =
-  "mongodb+srv://zivGuimpel:WRsbORvn90CEOQvQ@zivnbaappcluster.1vlic.mongodb.net/";
+const uri = process.env.MONGO_CONNECTION_STRING;
 
 export const checkConnection = async () => {
   try {
