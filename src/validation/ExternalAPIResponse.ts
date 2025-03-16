@@ -7,6 +7,6 @@ const meta = z.object({
 });
 
 export const externalAPIResponseSchema = z.object({
-  data: z.array(z.any(), { message: "no data recieved" }),
-  meta,
+  data: z.array(z.any(), { message: "data is missing" }),
+  meta: z.any({ message: "meta is missing" }),
 });

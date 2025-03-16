@@ -1,6 +1,7 @@
 import { Router } from "express";
-import { getAllPlayers } from "../controllers/playerOperations";
+import { getPlayers } from "../controllers/playerOperations";
+import { fetchPlayers } from "../services";
 
 export const playerRouter = Router();
 
-playerRouter.get("/getAll", getAllPlayers);
+playerRouter.get("/getAll", getPlayers);
